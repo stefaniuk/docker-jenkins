@@ -42,7 +42,7 @@ log:
 
 test:
 	docker exec --interactive --tty \
-		--user "jenkins" \
+		--user jenkins \
 		$(NAME) \
 		ps auxw
 

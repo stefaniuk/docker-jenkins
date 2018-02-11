@@ -1,20 +1,20 @@
-FROM codeworksio/openjdk8:8.151-20180203
+FROM codeworksio/openjdk8:8.151-20180210
 
 # SEE: https://github.com/jenkinsci/docker/blob/master/Dockerfile
 
 ARG APT_PROXY
 ARG APT_PROXY_SSL
 
-RUN set -ex \
+RUN set -ex; \
     \
-    && if [ -n "$APT_PROXY" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/00proxy; fi \
-    && if [ -n "$APT_PROXY_SSL" ]; then echo "Acquire::https { Proxy \"https://${APT_PROXY_SSL}\"; };" > /etc/apt/apt.conf.d/00proxy; fi \
+    if [ -n "$APT_PROXY" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/00proxy; fi; \
+    if [ -n "$APT_PROXY_SSL" ]; then echo "Acquire::https { Proxy \"https://${APT_PROXY_SSL}\"; };" > /etc/apt/apt.conf.d/00proxy; fi; \
     \
-    && usermod -l jenkins -m -d /var/jenkins_home ubuntu \
-    && groupmod -n jenkins ubuntu \
+    usermod -l jenkins -m -d /var/jenkins_home ubuntu; \
+    groupmod -n jenkins ubuntu; \
     \
-    && apt-get --yes update \
-    && apt-get --yes install \
+    apt-get --yes update; \
+    apt-get --yes install \
         git
 
 # TODO: Refacto the code below
