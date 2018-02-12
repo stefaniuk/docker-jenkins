@@ -1,7 +1,7 @@
 [![Circle CI](https://circleci.com/gh/codeworksio/docker-jenkins.svg?style=shield "CircleCI")](https://circleci.com/gh/codeworksio/docker-jenkins)&nbsp;[![Size](https://images.microbadger.com/badges/image/codeworksio/jenkins.svg)](http://microbadger.com/images/codeworksio/jenkins)&nbsp;[![Version](https://images.microbadger.com/badges/version/codeworksio/jenkins.svg)](http://microbadger.com/images/codeworksio/jenkins)&nbsp;[![Commit](https://images.microbadger.com/badges/commit/codeworksio/jenkins.svg)](http://microbadger.com/images/codeworksio/jenkins)&nbsp;[![Docker Hub](https://img.shields.io/docker/pulls/codeworksio/jenkins.svg)](https://hub.docker.com/r/codeworksio/jenkins/)
 
-Docker OpenJDK 8
-================
+Docker Jenkins
+==============
 
 Continuous Integration server.
 
