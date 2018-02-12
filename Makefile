@@ -41,10 +41,9 @@ log:
 	docker logs --follow $(NAME)
 
 test:
-	docker exec --interactive --tty \
-		--user jenkins \
-		$(NAME) \
-		ps auxw
+	docker run --detach --interactive --tty --name $(NAME) $(IMAGE)
+	sleep 60
+	docker logs $(NAME) | grep "Jenkins initial setup is required. An admin user has been created and a password generated."
 
 bash:
 	docker exec --interactive --tty \
@@ -59,6 +58,7 @@ clean:
 push:
 	docker push $(IMAGE):$(shell cat VERSION)
 	docker push $(IMAGE):latest
+	sleep 10
 	curl --request POST "https://hooks.microbadger.com/images/$(IMAGE)/5r06TUFe-EyKdXo79RnB6AZnKa4="
 
 .SILENT:

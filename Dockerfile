@@ -1,4 +1,4 @@
-FROM codeworksio/openjdk8:8.151-20180210
+FROM codeworksio/openjdk8:8.151-20180212
 
 # SEE: https://github.com/jenkinsci/docker/blob/master/Dockerfile
 
